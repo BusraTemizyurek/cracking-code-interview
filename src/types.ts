@@ -3,3 +3,8 @@ export interface BSTNode<TValue> {
   left?: BSTNode<TValue>;
   right?: BSTNode<TValue>;
 }
+
+export interface ListNode<T> {
+  val: T;
+  next?: ListNode<T>;
+}
