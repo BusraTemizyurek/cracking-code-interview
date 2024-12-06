@@ -2,7 +2,7 @@
 
 import { ListNode } from "../types";
 
-//without temporary buffer time complexity O(n^2) space complexity O(1)
+// without temporary buffer time complexity O(n^2) space complexity O(1)
 export function removeDups(list: ListNode<string>): ListNode<string> {
   let temp: ListNode<string> | undefined = list;
   while (temp) {
@@ -39,6 +39,3 @@ export function removeDups2(list: ListNode<string>): ListNode<string> {
 
   return list;
 }
-
-// const result = removeDups2(list2);
-// console.log(JSON.stringify(result, null, 2));
