@@ -20,6 +20,10 @@ export function findKthToLast1(
     return list;
   }
 
+  if (kth > count) {
+    return undefined;
+  }
+
   let k = count - kth + 1;
 
   let temp2: ListNode<number> | undefined = list;
