@@ -35,8 +35,8 @@ export function findKthToLast1(
   return temp2;
 }
 
-// O(n) time O(1) space complexity with reccurssive
-export function nextNode(
+// O(n) time O(1) space complexity with recursive
+function nextNode(
   node: ListNode<number> | undefined,
   options: { kth: number }
 ): ListNode<number> | undefined {
