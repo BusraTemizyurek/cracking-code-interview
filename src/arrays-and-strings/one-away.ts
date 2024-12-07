@@ -9,13 +9,8 @@ export function oneAway(s: string, t: string): boolean {
   let i2 = 0;
   let isDiffFound = false;
 
-  // pale
-  // ple
   while (i1 < s.length && i2 < t.length) {
-    const codeOfS = s[i1].charCodeAt(0);
-    const codeOfT = t[i2].charCodeAt(0);
-
-    if (codeOfS !== codeOfT) {
+    if (s[i1] !== t[i2]) {
       if (isDiffFound) {
         return false;
       }
