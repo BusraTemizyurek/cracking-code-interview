@@ -1,7 +1,7 @@
-export interface BSTNode<TValue> {
+export interface TNode<TValue> {
   val: TValue;
-  left?: BSTNode<TValue>;
-  right?: BSTNode<TValue>;
+  left?: TNode<TValue>;
+  right?: TNode<TValue>;
 }
 
 export interface ListNode<T> {
