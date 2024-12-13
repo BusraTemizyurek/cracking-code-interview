@@ -1,16 +1,16 @@
 // page 122 (110) Q-4.5
 
-import { TNode } from "../types";
+import { BTNode } from "../types";
 
-export function getMax(root: TNode<number>): number {
+export function getMax(root: BTNode<number>): number {
   return root.right ? getMax(root.right) : root.val;
 }
 
-export function getMin(root: TNode<number>): number {
+export function getMin(root: BTNode<number>): number {
   return root.left ? getMin(root.left) : root.val;
 }
 
-export function validateBST(root: TNode<number> | undefined): boolean {
+export function validateBST(root: BTNode<number> | undefined): boolean {
   if (!root) {
     return true;
   }

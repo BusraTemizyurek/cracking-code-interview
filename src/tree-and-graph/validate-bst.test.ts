@@ -1,9 +1,9 @@
-import { TNode } from "../types";
+import { BTNode } from "../types";
 import { getMax, getMin, validateBST } from "./validate-bst";
 
 describe("validate-bst", () => {
   it("validate-bst function returns true for bst", () => {
-    const treeBST: TNode<number> = {
+    const treeBST: BTNode<number> = {
       val: 50,
       left: {
         val: 25,
@@ -34,7 +34,7 @@ describe("validate-bst", () => {
   });
 
   it("getMax function returns max value of bst", () => {
-    const treeBST: TNode<number> = {
+    const treeBST: BTNode<number> = {
       val: 50,
       left: {
         val: 25,
@@ -65,7 +65,7 @@ describe("validate-bst", () => {
   });
 
   it("getMin function returns min value of bst", () => {
-    const treeBST: TNode<number> = {
+    const treeBST: BTNode<number> = {
       val: 50,
       left: {
         val: 25,
@@ -96,7 +96,7 @@ describe("validate-bst", () => {
   });
 
   it("validates bst as false", () => {
-    const tree: TNode<number> = {
+    const tree: BTNode<number> = {
       val: 50,
       left: {
         val: 25,

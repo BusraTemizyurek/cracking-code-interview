@@ -1,5 +1,5 @@
 import { Bst } from "./random-node";
-import { TNode } from "../types";
+import { BTNode } from "../types";
 
 describe("BST class", () => {
   it("insert function will insert node to the bst, find function can return the given node in tree, show function will return the root node", () => {
@@ -14,7 +14,7 @@ describe("BST class", () => {
     tree.insert(20);
     tree.insert(10);
 
-    const result: TNode<number> = {
+    const result: BTNode<number> = {
       val: 100,
       left: {
         val: 50,
@@ -60,7 +60,7 @@ describe("BST class", () => {
     const n1 = tree2.getRandomNode();
     const n2 = tree2.getRandomNode();
 
-    const set = new Set<TNode<number>>();
+    const set = new Set<BTNode<number>>();
     set.add(n1);
     set.add(n2);
     expect(set.size).toBe(2);
@@ -84,7 +84,7 @@ describe("BST class", () => {
     tree.insert(10);
 
     tree.delete(100);
-    const result1: TNode<number> = {
+    const result1: BTNode<number> = {
       val: 55,
       left: {
         val: 50,
@@ -133,7 +133,7 @@ describe("BST class", () => {
 
     tree.delete(100);
     tree.delete(150);
-    const result2: TNode<number> = {
+    const result2: BTNode<number> = {
       val: 55,
       left: {
         val: 50,
@@ -174,7 +174,7 @@ describe("BST class", () => {
     tree.delete(100);
     tree.delete(150);
     tree.delete(150);
-    const result3: TNode<number> = {
+    const result3: BTNode<number> = {
       val: 55,
       left: {
         val: 50,
@@ -215,7 +215,7 @@ describe("BST class", () => {
     tree.delete(100);
     tree.delete(150);
     tree.delete(10);
-    const result4: TNode<number> = {
+    const result4: BTNode<number> = {
       val: 55,
       left: {
         val: 50,
@@ -256,7 +256,7 @@ describe("BST class", () => {
     tree.delete(150);
     tree.delete(10);
     tree.delete(25);
-    const result5: TNode<number> = {
+    const result5: BTNode<number> = {
       val: 55,
       left: {
         val: 50,
@@ -295,7 +295,7 @@ describe("BST class", () => {
     tree.delete(10);
     tree.delete(25);
     tree.delete(125);
-    const result6: TNode<number> = {
+    const result6: BTNode<number> = {
       val: 55,
       left: {
         val: 50,

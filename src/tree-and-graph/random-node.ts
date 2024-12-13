@@ -1,8 +1,8 @@
 // page 123 (111) Q-4.11
 
-import { TNode } from "../types";
+import { BTNode } from "../types";
 
-function _insert(root: TNode<number>, node: TNode<number>) {
+function _insert(root: BTNode<number>, node: BTNode<number>) {
   if (root.val > node.val) {
     if (root.left) {
       _insert(root.left, node);
@@ -18,14 +18,14 @@ function _insert(root: TNode<number>, node: TNode<number>) {
   }
 }
 
-function getMax(root: TNode<number>): number {
+function getMax(root: BTNode<number>): number {
   return root.right ? getMax(root.right) : root.val;
 }
 
 function _delete(
-  root: TNode<number> | undefined,
+  root: BTNode<number> | undefined,
   num: number
-): TNode<number> | undefined {
+): BTNode<number> | undefined {
   if (!root) {
     return undefined;
   }
@@ -52,8 +52,8 @@ function _delete(
 }
 
 function inOrderTraversalPrint(
-  root: TNode<number> | undefined,
-  result: TNode<number>[]
+  root: BTNode<number> | undefined,
+  result: BTNode<number>[]
 ) {
   if (!root) {
     return;
@@ -70,8 +70,8 @@ function inOrderTraversalPrint(
   }
 }
 
-function inOrderTraversal(root: TNode<number> | undefined): TNode<number>[] {
-  const result: TNode<number>[] = [];
+function inOrderTraversal(root: BTNode<number> | undefined): BTNode<number>[] {
+  const result: BTNode<number>[] = [];
   inOrderTraversalPrint(root, result);
   return result;
 }
@@ -81,7 +81,7 @@ function getRandomInt(max: number): number {
 }
 
 function createRandomIndex(
-  arr: TNode<number>[],
+  arr: BTNode<number>[],
   set: Set<number>
 ): number | undefined {
   const index = getRandomInt(arr.length);
@@ -97,7 +97,7 @@ function createRandomIndex(
 }
 
 export class Bst {
-  private root: TNode<number> | undefined = undefined;
+  private root: BTNode<number> | undefined = undefined;
 
   insert(num: number) {
     const newItem = {
