@@ -1,4 +1,4 @@
-import { main } from "./paths-with-sum";
+import { findPathsWithsum } from "./paths-with-sum";
 import { BTNode } from "../types";
 
 describe("main function", () => {
@@ -10,7 +10,7 @@ describe("main function", () => {
     };
     const sum1 = 8;
 
-    expect(main(root1, sum1)).toBe(1);
+    expect(findPathsWithsum(root1, sum1)).toBe(1);
   });
 
   it("works for tree with multiple paths", () => {
@@ -28,7 +28,7 @@ describe("main function", () => {
     };
     const sum2 = 8;
 
-    expect(main(root2, sum2)).toBe(3);
+    expect(findPathsWithsum(root2, sum2)).toBe(3);
   });
 
   it("works for tree with no path", () => {
@@ -39,7 +39,7 @@ describe("main function", () => {
     };
     const sum3 = 10;
 
-    expect(main(root3, sum3)).toBe(0);
+    expect(findPathsWithsum(root3, sum3)).toBe(0);
   });
 
   it("works for tree with just 1 node in path", () => {
@@ -54,6 +54,6 @@ describe("main function", () => {
     };
     const sum4 = 7;
 
-    expect(main(root4, sum4)).toBe(1);
+    expect(findPathsWithsum(root4, sum4)).toBe(1);
   });
 });

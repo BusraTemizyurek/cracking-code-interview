@@ -23,7 +23,7 @@ function getPathsWithSum(
   return;
 }
 
-export function main(root: BTNode<number>, sum: number): number {
+export function findPathsWithsum(root: BTNode<number>, sum: number): number {
   const pathsWithSum: BTNode<number>[][] = [];
   inorder(root, sum, pathsWithSum);
 
