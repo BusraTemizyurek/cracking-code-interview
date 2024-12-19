@@ -1,17 +1,17 @@
 // Page 121 (109) Q-4.3
 
-import { TNode, ListNode } from "./types";
+import { BTNode, ListNode } from "../types";
 
 function helper(
-  node: TNode | undefined,
+  node: BTNode<number> | undefined,
   level: number,
-  head: ListNode[],
-  tail: ListNode[]
+  head: ListNode<BTNode<number>>[],
+  tail: ListNode<BTNode<number>>[]
 ) {
   if (!node) {
     return;
   }
-  const newNode: ListNode = {
+  const newNode: ListNode<BTNode<number>> = {
     val: node,
   };
 
@@ -27,9 +27,9 @@ function helper(
   helper(node.right, level + 1, head, tail);
 }
 
-export function createLists(root: TNode): ListNode[] {
-  const head: ListNode[] = [];
-  const tail: ListNode[] = [];
+export function createLists(root: BTNode<number>): ListNode<BTNode<number>>[] {
+  const head: ListNode<BTNode<number>>[] = [];
+  const tail: ListNode<BTNode<number>>[] = [];
   helper(root, 0, head, tail);
 
   return head;
