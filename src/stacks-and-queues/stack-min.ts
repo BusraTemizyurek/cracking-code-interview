@@ -1,9 +1,6 @@
 // page 109(98) Q-3.2
 
-interface ListNode {
-  val: number;
-  next?: ListNode;
-}
+import { ListNode } from "../types";
 
 /**
  * StackMin class maintains a stack with the ability to return the minimum element in O(1) time.
@@ -24,14 +21,14 @@ interface ListNode {
  */
 
 export class StackMin {
-  private dummy: ListNode = {
+  private dummy: ListNode<number> = {
     val: -1,
   };
 
   private minStack: number[] = [];
 
   push(value: number) {
-    const newItem: ListNode = {
+    const newItem: ListNode<number> = {
       val: value,
     };
 
