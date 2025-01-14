@@ -31,7 +31,6 @@ describe("findFirstCommonAncestor", () => {
     n3.right = n6;
     n6.right = n7;
 
-    //expect(findFirstCommonAncestor(n1, n7, n5)).toBe(n1);
     expect(findFirstCommonAncestor(n1, n4, n5)).toBe(n2);
   });
 
