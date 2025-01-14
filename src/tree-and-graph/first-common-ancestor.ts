@@ -39,56 +39,85 @@ export function findFirstCommonAncestor(
   return undefined;
 }
 
-// function getPath(root: BTNode<number>, n: BTNode<number>) {
-//   const s: BTNode<number>[] = [root];
-//   const visited = new Set<BTNode<number>>();
+// optional solution for O(n) time complexity
 
-//   while (s[s.length - 1] !== n) {
-//     const temp = s[s.length - 1];
-//     if (!temp) {
-//       return undefined;
-//     }
-//     visited.add(temp);
+const getPath = (s: BTNode<number>[], n: BTNode<number>) => {
+  const visited = new Set<BTNode<number>>();
 
-//     if (temp.left && !visited.has(temp.left)) {
-//       s.push(temp.left);
-//     } else if (temp.right && !visited.has(temp.right)) {
-//       s.push(temp.right);
-//     } else {
-//       s.pop();
-//     }
-//   }
+  while (s[s.length - 1] !== n) {
+    const temp = s[s.length - 1];
+    if (!temp) {
+      return undefined;
+    }
+    visited.add(temp);
 
-//   return s;
-// }
+    if (temp.left && !visited.has(temp.left)) {
+      s.push(temp.left);
+    } else if (temp.right && !visited.has(temp.right)) {
+      s.push(temp.right);
+    } else {
+      s.pop();
+    }
+  }
+  return s;
+};
 
-// // optional solution for O(n) time complexity
+export const getFirstCommonAncestor = (
+  root: BTNode<number>,
+  n1: BTNode<number>,
+  n2: BTNode<number>
+): BTNode<number> | undefined => {
+  if (root === n1 || root === n2) {
+    return root;
+  }
 
-// export const getFirstCommonAncestor = (
-//   root: BTNode<number>,
-//   n1: BTNode<number>,
-//   n2: BTNode<number>
-// ) => {
-//   if (root === n1 || root === n2) {
-//     return root;
-//   }
+  let s1: BTNode<number>[] | undefined = [root];
+  let s2: BTNode<number>[] | undefined = [root];
 
-//   const s1 = getPath(root, n1);
-//   const s2 = getPath(root, n2);
+  s1 = getPath(s1, n1);
+  s2 = getPath(s2, n2);
 
-//   if (!s1 || !s2) {
-//     return undefined;
-//   }
+  if (!s1 || !s2) {
+    return undefined;
+  }
 
-//   const bigger = s1.length > s2.length ? s1 : s2;
-//   const smaller = bigger === s1 ? s2 : s1;
+  let s = s1.length > s2.length ? s1 : s2;
+  while (s1.length !== s2.length) {
+    s.pop();
+  }
 
-//   for (let i = smaller.length - 1; i >= 0; i--) {
-//     if (smaller[i] === bigger[i]) {
-//       return smaller[i];
-//     }
-//   }
+  while (s.length > 0) {
+    const p1 = s1.pop();
+    const p2 = s2.pop();
 
-//   // Not Found
-//   return undefined;
-// };
+    if (p1 === p2) {
+      return p1;
+    }
+  }
+  return undefined;
+};
+
+// optional solution-2 for O(n) time complexity
+
+export const firstCommonAncestor = (
+  root: BTNode<number> | undefined,
+  n1: BTNode<number>,
+  n2: BTNode<number>
+): BTNode<number> | undefined => {
+  if (!root) {
+    return undefined;
+  }
+
+  if (root === n1 || root === n2) {
+    return root;
+  }
+
+  const left = firstCommonAncestor(root.left, n1, n2);
+  const right = firstCommonAncestor(root.right, n1, n2);
+
+  if (right && left) {
+    return root;
+  }
+
+  return left ?? right;
+};
